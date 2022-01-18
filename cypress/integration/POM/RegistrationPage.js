@@ -1,8 +1,18 @@
 class RegistrationPage{
     
     imeInputField = '#firstname';
-    
-    
+    prezimeInputField = '#lastname';
+    emailInputField = '#email_address';
+    newsletterChBox = '#is_subscribed';
+    pravnoLiceDropDown = '#pravnolice';
+    imeFirmeInputField = '#firma';
+    pibInputField = '#pib';
+    passwordInputField = '#password';
+    confirmPasswordInputField = '#confirmation';
+    registratioBtn = 'p.back-link > .button';
+    negativnaPoruka = '.alert.alert-warning';
+
+
     navigate(){
         cy.visit('/')
 
@@ -13,51 +23,51 @@ class RegistrationPage{
         .type(firstName)
     }
     enterLastName(lastName){
-        cy.get('#lastname')
+        cy.get(this.prezimeInputField)
         .clear()
         .type(lastName)
     }
     enterEmail(email){
-        cy.get('#email_address')
+        cy.get(this.emailInputField)
         .clear()
         .type(email)
     }
     selectNewsLetter(){
-        cy.get('#is_subscribed')
+        cy.get(this.newsletterChBox)
         .uncheck()
         .should('not.be.selected')
     }
     selectPravnoLice(){
-        cy.get('#pravnolice')
+        cy.get(this.pravnoLiceDropDown)
         .select('1')
         .should('have.value','1')
     }
     enterImeFirme(imeFirme){
-        cy.get('#firma')
+        cy.get(this.imeFirmeInputField)
         .clear()
         .type(imeFirme)
     }
     enterPib(PIB){
-        cy.get('#pib')
+        cy.get(this.pibInputField)
         .clear()
         .type(PIB)
     }
     enterPassword(password){
-        cy.get('#password')
+        cy.get(this.passwordInputField)
         .clear()
         .type(password)
     }
     enterComfirmPassword(confirmPassword){
-        cy.get('#confirmation')
+        cy.get(this.confirmPasswordInputField)
         .clear()
         .type(confirmPassword)
     }
     clikRegisterBtn(){
-        cy.get('p.back-link > .button')
+        cy.get(this.registratioBtn)
         .click()
     }
     errorMessage(){
-        cy.get('.alert.alert-warning')
+        cy.get(this.negativnaPoruka)
         .should('exist')
         .contains('Već postoji nalog sa unetom')
     }
