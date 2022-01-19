@@ -15,7 +15,9 @@ class RegistrationPage{
 
     navigate(){
         cy.visit('/')
-
+    }
+    ipadRezolucija(){
+        cy.viewport('ipad-mini')
     }
     enterFirstName(firstName){
         cy.get(this.imeInputField)
