@@ -2,6 +2,7 @@
 
 import RegistrationPage from "./POM/RegistrationPage"
 
+
 describe("Proba testa",  () => {
     const registration = new RegistrationPage();
     it("Registracija", () => {
@@ -17,6 +18,9 @@ describe("Proba testa",  () => {
         registration.enterComfirmPassword('1234567890');
         registration.clikRegisterBtn();
         registration.errorMessage();
+        registration.positiveMessage();
 
     });
+    
+
 });

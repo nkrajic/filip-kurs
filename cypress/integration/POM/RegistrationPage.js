@@ -11,6 +11,7 @@ class RegistrationPage{
     confirmPasswordInputField = '#confirmation';
     registratioBtn = 'p.back-link > .button';
     negativnaPoruka = '.alert.alert-warning';
+    pozitivnaPoruka = '.alert.alert-success';
 
 
     navigate(){
@@ -73,6 +74,11 @@ class RegistrationPage{
         .should('exist')
         .contains('Već postoji nalog sa unetom')
     }
+    positiveMessage(){
+        cy.get(this.pozitivnaPoruka)
+        .should('not.exist')
+    }
+    
     
 
 }

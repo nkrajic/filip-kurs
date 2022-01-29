@@ -20,3 +20,5 @@ import '@applitools/eyes-cypress/commands'
 import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+import "cypress-real-events/support";
+
