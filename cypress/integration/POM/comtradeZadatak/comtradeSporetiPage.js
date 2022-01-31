@@ -1,8 +1,8 @@
 class comtradeSporetiPage{
 
-    klikKombinovaniSporeti = '.col-xs-4:nth-child(2) span'
-    fltGorenje = 'li:nth-child(1) > label:nth-child(2)'
-    fltBeko = 'li:nth-child(2) > label'
+    klikKombinovaniSporeti = '[title="Kombinovani šporeti"] > span'
+    fltGorenje = '[for="filter_data_brend_142"]'
+    fltBeko = '[for="filter_data_brend_42"]'
 
 
     clickKombinovaniSporeti(){

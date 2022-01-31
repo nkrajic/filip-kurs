@@ -3,7 +3,7 @@ class comtradeGorenjePage{
     gorenjeSporet511sg = '[title="K5111SG kombinovani šporet"]'
     gorenjeBezPopustaCena511sg = '.price-cont > .strikethrough'
     gorenjeSaPopustomCena511sg = '.price-cont > .price'
-    gorenjeOcene = '.active > a'
+    gorenjeOcene = '[href="#ocene"]'
     gorenjeSimonaKomentar = '.review-item'
 
 
