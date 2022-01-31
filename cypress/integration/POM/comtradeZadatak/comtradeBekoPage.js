@@ -1,6 +1,6 @@
 class comtradeBekoPage{
 
-    bekoSporetFss = '.first .product-name > a'
+    bekoSporetFss = '[title="FSS54010DW kombinovani šporet"]'
     bekoSporetFssBoja = '[data-specid="4649"] > td'
 
 
@@ -9,9 +9,10 @@ class comtradeBekoPage{
         .click()
     }
 
-    bekoProductFssColor(){
+    bekoProductFssColor(collor){
         cy.get(this.bekoSporetFssBoja)
-        .should('have.text', 'Bela')
+        .contains(collor)
+        .should('contain.text', collor)
     }
     
 }

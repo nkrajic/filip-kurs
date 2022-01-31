@@ -18,15 +18,15 @@ describe('Hoverovanje na stranici', () => {
         ComtradeSporetiPage.clickKombinovaniSporeti();
         ComtradeSporetiPage.clickFltGorenje();
         ComtradeGorenjePage.gorenjeProduct511sg();
-        ComtradeGorenjePage.gorenjeNoSalePrice511sg();
-        ComtradeGorenjePage.gorenjeSalePrice511sg();
+        ComtradeGorenjePage.gorenjeNoSalePrice511sg('34.433 RSD');
+        ComtradeGorenjePage.gorenjeSalePrice511sg('30.990 RSD');
         ComtradeGorenjePage.gorenjeReview();
-        ComtradeGorenjePage.gorenjeSimonaComment();
+        ComtradeGorenjePage.gorenjeSimonaComment('Savršen za moju letnju kuhinju i prava stvar sto je pola pola. ');
         cy.go('back');
         ComtradeSporetiPage.clickFltGorenje();
         ComtradeSporetiPage.clickFltBeko();
         ComtradeBekoPage.bekoProductFss();
-        ComtradeBekoPage.bekoProductFssColor();
+        ComtradeBekoPage.bekoProductFssColor('Bela');
     
     
     });

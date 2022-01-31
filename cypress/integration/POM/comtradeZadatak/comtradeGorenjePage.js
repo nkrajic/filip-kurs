@@ -1,6 +1,6 @@
 class comtradeGorenjePage{
 
-    gorenjeSporet511sg = '.col-xs-12:nth-child(2) .product-name > a'
+    gorenjeSporet511sg = '[title="K5111SG kombinovani šporet"]'
     gorenjeBezPopustaCena511sg = '.price-cont > .strikethrough'
     gorenjeSaPopustomCena511sg = '.price-cont > .price'
     gorenjeOcene = '.active > a'
@@ -12,14 +12,14 @@ class comtradeGorenjePage{
         .click()
     }
 
-    gorenjeNoSalePrice511sg(){
+    gorenjeNoSalePrice511sg(noSalePrice){
         cy.get(this.gorenjeBezPopustaCena511sg)
-        .should('have.text', '34.433 RSD')
+        .should('have.text', noSalePrice)
     }
 
-    gorenjeSalePrice511sg(){
+    gorenjeSalePrice511sg(salePrice){
         cy.get(this.gorenjeSaPopustomCena511sg)
-        .should('have.text', '30.990 RSD')
+        .should('have.text', salePrice)
     }
 
     gorenjeReview(){
@@ -27,15 +27,11 @@ class comtradeGorenjePage{
         .click()
     }
 
-    gorenjeSimonaComment(){
+    gorenjeSimonaComment(commetnSimona){
         cy.get(this.gorenjeSimonaKomentar)
-        .should('have.text', '\n            Gorenje šporet \n            \n                (30.04.2021)\n            \n            \n                \n                                        \n                \n            \n            Savršen za moju letnju kuhinju i prava stvar sto je pola pola. Na plinu se jako brzo sprema, a kad nestane plin tu je ringla na električnu energiju. Rerna ima opciju vodenog čišćenja što lako uklanja zagorene fleke \n            \n                Simona \n            \n            \n        ')
+        .contains(commetnSimona)
+        .should('contain.text', commetnSimona)
     }
-
-
-
-
-
 
 
 }
