@@ -19,6 +19,12 @@ describe('E2E Testiranje Hallo Oglasi', () => {
     const mailDomen = "@mailinator.com"
     const passwd = "12345678"
 
+    Cypress.Commands.add('forceVisit', url => {
+        cy.window().then(win => {
+            return win.open(url, '_self'); 
+          });
+    });
+
     it('Testing that can register new user', () => {
         HalloOglasiHomePage.clickLoginBtn();
         HalloOglasiLoginPage.clickRegistrationLink();
@@ -28,10 +34,9 @@ describe('E2E Testiranje Hallo Oglasi', () => {
         HalloOglasiRegistrationPage.passwordInputField(passwd);
         HalloOglasiRegistrationPage.confirmPasswordInputField(passwd);
         HalloOglasiRegistrationPage.clickRegistrationBtn();
-        // HalloOglasiCompleteRegistration.successfullRegistrationTextVerify('Registracija je uspela!\n' +
-        // 'Kako bi Vaš nalog postao aktivan, neophodno je da kliknite na' +
-        // ' link u mejlu koji Vam je poslat na : ' +
-        //  ime + mailDomen +' !');
+        HalloOglasiCompleteRegistration.successfullRegistrationTextVerify('\n\tRegistracija je uspela!\n\t\n\t\tKako bi Vaš nalog postao aktivan, ' +
+        'neophodno je da kliknite na link\n\t\tu mejlu koji Vam je poslat na : ' + ime + mailDomen + ' !\n\t\n');ç
+        cy.forceVisit("www.mailinator.com");
 
         
         
