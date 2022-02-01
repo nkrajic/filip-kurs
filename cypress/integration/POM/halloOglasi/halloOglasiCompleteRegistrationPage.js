@@ -5,7 +5,6 @@ class halloOglasiCompleteRegistrationPage{
 
     successfullRegistrationTextVerify(successText){
         cy.get(this.successfullRegistrationText)
-        .contains(successText)
         .should('contain.text',successText)
     }
    
