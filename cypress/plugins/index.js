@@ -17,9 +17,22 @@
  */
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
+
+  let value
+    on('task', {
+      log(message){
+        console.log(message)
+        return null
+      },
+      save(v){
+        value = v
+        return null
+      },
+      load(){
+        return value || null
+             },
+      
+    })
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 }
-
-
-require('@applitools/eyes-cypress')(module);

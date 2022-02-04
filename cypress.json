@@ -1,4 +1,8 @@
 {
-    "baseUrl":"https://www.ctshop.rs/"
+    "baseUrl":"https://www.ctshop.rs/",
+    
+        "viewportWidth": 1920,
+        "viewportHeight": 1080
+      
 
 }

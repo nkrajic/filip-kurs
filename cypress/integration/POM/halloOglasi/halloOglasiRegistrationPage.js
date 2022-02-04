@@ -1,5 +1,3 @@
-import { type } from "wd/lib/commands"
-
 class halloOglasiRegistrationPage{
 
     ratioBtnFizickaLica = '[value="person"]'
@@ -17,21 +15,25 @@ class halloOglasiRegistrationPage{
 
     userNameInputField(userName){
         cy.get(this.userNameField)
+        .clear()
         .type(userName)
     }
 
     emailInputField(email){
         cy.get(this.emailField)
+        .clear()
         .type(email)
     }
 
     passwordInputField(password){
         cy.get(this.passwordField)
+        .clear()
         .type(password)
     }
 
     confirmPasswordInputField(confirmPassword){
         cy.get(this.confirmPasswordField)
+        .clear()
         .type(confirmPassword)
     }
 
