@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-
+import 'cypress-iframe'
 import halloOglasiCompleteRegistrationPage from "../halloOglasi/halloOglasiCompleteRegistrationPage";
 import halloOglasiHomePage from "../halloOglasi/halloOglasiHomePage";
 import halloOglasiLoginPage from "../halloOglasi/halloOglasiLoginPage";
@@ -23,8 +23,6 @@ describe('E2E Testiranje Hallo Oglasi', () => {
     const mailDomen = "@mailinator.com"
     const passwd = "12345678"
     Cypress.on('uncaught:exception', (err, runnable) => {
-        // returning false here prevents Cypress from
-        // failing the test
         return false
       })
 
@@ -39,17 +37,19 @@ describe('E2E Testiranje Hallo Oglasi', () => {
         HalloOglasiRegistrationPage.confirmPasswordInputField(passwd);
         HalloOglasiRegistrationPage.clickRegistrationBtn();
         HalloOglasiCompleteRegistration.successfullRegistrationTextVerify('\n\tRegistracija je uspela!\n\t\n\t\tKako bi Vaš nalog postao aktivan, ' +
-        'neophodno je da kliknite na link\n\t\tu mejlu koji Vam je poslat na : ' + ime + mailDomen + ' !\n\t\n');
-       
+        'neophodno je da kliknite na link\n\t\tu mejlu koji Vam je poslat na : ' + ime + mailDomen + ' !\n\t\n'); 
         cy.task('save', ime)
     });
 
-        it('Mailinator accept page', () => {
-            cy.visit('https://www.mailinator.com/')
-            cy.task('load').then((ime)=>
-            {
-                MailinatorHomePage.searchBoxInputField(ime);
-            }) 
-            MailinatorMessagePage.mailinatorMessageBody();
+    it('Mailinator accept page', () => {
+        cy.visit('https://www.mailinator.com/')
+        cy.task('load').then((ime)=>
+        {
+        MailinatorHomePage.searchBoxInputField(ime);
+        })
+        cy.frameLoaded('#html_msg_body').contains('Molimo aktivirajte').should('exist');
+        cy.iframe().find('#html_msg_body').click();
+        //cy.iframe().find('#run-button').should('have.text', 'Try it').click()
+        //cy.iframe().find('a[xpath="1"]').click();
         });
 });
