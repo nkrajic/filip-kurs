@@ -7,9 +7,10 @@ import halloOglasiRegistrationPage from "../halloOglasi/halloOglasiRegistrationP
 import mailinatorHomePage from "../halloOglasi/mailinatorHomePage";
 import mailinatorMessagePage from "../halloOglasi/mailinatorMessagePage";
 
-// beforeEach(() => {
-//     cy.visit('https://www.halooglasi.com/')
-// });
+beforeEach(() => {
+    //cy.visit('https://www.halooglasi.com/')
+
+});
 
 describe('E2E Testiranje Hallo Oglasi', () => {
     const HalloOglasiHomePage = new halloOglasiHomePage();
@@ -24,7 +25,9 @@ describe('E2E Testiranje Hallo Oglasi', () => {
     const passwd = "12345678"
     Cypress.on('uncaught:exception', (err, runnable) => {
         return false
+        
       })
+      
 
     it('Testing that can register new user', () => {
         cy.visit('https://www.halooglasi.com/')
@@ -47,8 +50,8 @@ describe('E2E Testiranje Hallo Oglasi', () => {
         {
         MailinatorHomePage.searchBoxInputField(ime);
         })
-        cy.frameLoaded('#html_msg_body').contains('Molimo aktivirajte').should('exist');
-        cy.iframe().find('#html_msg_body').click();
+        cy.frameLoaded('#html_msg_body');
+        cy.iframe().find('#html_msg_body').should('exist').click();
         //cy.iframe().find('#run-button').should('have.text', 'Try it').click()
         //cy.iframe().find('a[xpath="1"]').click();
         });

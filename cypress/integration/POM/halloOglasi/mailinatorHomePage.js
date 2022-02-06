@@ -5,6 +5,7 @@ class mailinatorHomePage{
 
     searchBoxInputField(emailSearch){
         cy.get(this.searchBoxField)
+        .clear()
         .type(emailSearch + '{enter}')
     }
 
