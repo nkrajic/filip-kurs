@@ -53,10 +53,5 @@ describe('E2E Testiranje Hallo Oglasi', () => {
         MailinatorMessagePage.mailinatorActivationTextHalloOgasi();
         MailinatorMessagePage.mailinatorMessageBody();
         
-        //cy.iframe().find('[align="center"] strong').click();
-        // cy.frameLoaded('#html_msg_body');
-        // cy.iframe().find('[align="center"] strong').click();
-        // cy.iframe().find('#run-button').should('have.text', 'Try it').click()
-        // cy.iframe().find('a[xpath="1"]').click();
         });
 });
