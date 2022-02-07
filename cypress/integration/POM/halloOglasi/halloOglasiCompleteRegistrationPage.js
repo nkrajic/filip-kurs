@@ -4,7 +4,7 @@ class halloOglasiCompleteRegistrationPage{
     
 
     successfullRegistrationTextVerify(successText){
-        cy.get(this.successfullRegistrationText)
+        cy.get(this.successfullRegistrationText, {timeout:6000})
         .should('contain.text',successText)
     }
    
