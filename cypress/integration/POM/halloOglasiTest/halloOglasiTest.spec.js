@@ -1,11 +1,12 @@
 /// <reference types="cypress" />
-import 'cypress-iframe'
+import 'cypress-iframe';
 import halloOglasiCompleteRegistrationPage from "../halloOglasi/halloOglasiCompleteRegistrationPage";
 import halloOglasiHomePage from "../halloOglasi/halloOglasiHomePage";
 import halloOglasiLoginPage from "../halloOglasi/halloOglasiLoginPage";
 import halloOglasiRegistrationPage from "../halloOglasi/halloOglasiRegistrationPage";
 import mailinatorHomePage from "../halloOglasi/mailinatorHomePage";
 import mailinatorMessagePage from "../halloOglasi/mailinatorMessagePage";
+
 
 beforeEach(() => {
     //cy.visit('https://www.halooglasi.com/')
@@ -51,7 +52,16 @@ describe('E2E Testiranje Hallo Oglasi', () => {
         MailinatorHomePage.searchBoxInputField(ime);
         })
         MailinatorMessagePage.mailinatorActivationTextHalloOgasi();
-        MailinatorMessagePage.mailinatorMessageBody();
+        
+        
+        
+        //MailinatorMessagePage.mailinatorMessageBody();
+
+        // cy.get('#html_msg_body')
+        // .its('0.contentDocument.body')
+        // .then(cy.wrap)
+        // .find('[align="center"] > [target="_other"]')
+        // .should('be.visible');
         
         });
 });
